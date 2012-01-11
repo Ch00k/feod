@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+
+{% block content %}
+	<h3>Add price</h3>
+	{% if error %}
+	<div class=error>
+	   {{ error }}
+	</div>
+	{% endif %}
+	<h5>Upload  file</h5>
+	   <form action="" method=post enctype=multipart/form-data>
+	       <input type=file name=file><br>
+	       <input type=hidden name=subcat value="{{ subcategory_id }}">
+	       <input type=submit value=Upload>
+	    </form>
+{% endblock %}

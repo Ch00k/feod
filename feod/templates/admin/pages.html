@@ -1,0 +1,57 @@
+{% extends 'admin/base.html' %}
+
+{% block script %}
+    <script type=text/javascript src=https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js></script>
+    <script type=text/javascript>
+    
+        $(function() {
+	        var checkboxes = $("input[type='checkbox']"),
+	            submitButt = $("input[class='delete']");
+	            checkboxes.click(function() {
+	                submitButt.attr("disabled", !checkboxes.is(":checked"));
+	            });
+        });
+        
+        $(function() {
+            $('#checkall').click(function(){
+                $('.checkboxes').attr('checked', $(this).is(':checked'));
+            });
+        });
+        
+    </script>
+{% endblock %}
+
+
+{% block content %}
+    <h3><a href="{{ url_for('add_page') }}">Add page</a></h3>
+    {% if not pages %}
+        There are no pages
+    {% else %}
+        <form action="" method=post>
+	        <table>
+	            <tr>
+	                <th><input id=checkall type=checkbox></th>
+	                <th>ID</th>
+	                <th>Title</th>
+	                <th>In menu</th>
+	                <th>Updated</th>
+	                <th>Edit</th>
+	                <th>Delete</th>
+	            </tr>
+	            {% for page in pages %}
+	                <tr>
+	                    <td><input class=checkboxes type=checkbox name=do_delete value="{{ page['id'] }}"></td>
+	    			    <td>{{ page['id'] }}</td>
+	    			    <td><a href="{{ page['id'] }}">{{ page['title'] }}</a></td>
+	    			    <td>{{ page['inmenu'] }}</td>
+	    			    <td>{{ page['last_update'] }}</td>
+	    			    <td class=><a href="{{ url_for('edit_page', id = page['id']) }}">edit</a></td>
+	    			    <td><a href="{{ url_for('delete_page', id = page['id']) }}" onclick="return confirm('Are you sure you want to delete the page {{ page['title'] }}?')">delete</a></td>
+	                </tr>
+	            {% endfor %}
+	        </table>
+	        With selected:
+	        <input class=delete type=submit value=Delete onclick="return confirm('Are you sure you want to delete pages?')" disabled>
+        </form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+    <h2>Ink</h2>
+    <table>
+       {% for price in prices %}
+           <tr>
+               <td>{{ price['code'] }}</td>
+               <td>{{ price['title'] }}</td>
+               <td>{{ price['price'] }}</td>
+           </tr>
+       {% endfor %}
+    </table>
+{% endblock %}

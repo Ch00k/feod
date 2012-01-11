@@ -1,0 +1,21 @@
+<html>
+<head>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='frontend_style.css') }}">
+</head>
+<body>
+{% block content %}
+<div id="navcontainer">
+<ul id="navlist">
+<li id="active"><a href="#" id="current">Item one</a></li>
+<li><a href="#">Item two</a></li>
+<li><a href="#">Item three</a></li>
+<li><a href="#">Item four</a></li>
+<li><a href="#">Item five</a></li>
+</ul>
+</div>
+{% block body %}
+
+{% endblock %}
+{% endblock %}
+</body>
+</html>

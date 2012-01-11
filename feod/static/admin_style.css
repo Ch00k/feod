@@ -1,0 +1,56 @@
+body {
+	font-family: arial, sans-serif;
+}
+
+.content {
+	width: 960px;
+	padding: 10px;
+	margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+
+.messages {
+	display: inline-block;
+	background-color: lightgreen;
+    color: green;
+    font-size: 11px;
+}
+
+.error {
+	display: inline-block;
+    background-color: pink;
+    color: red;
+    font-size: 11px;
+}
+
+table tr, td, th {
+    border: solid black 1px;
+	padding: 5px;
+}
+
+table th {
+    background: grey;
+}
+
+table {
+	width: 100%;
+}
+
+.nav {
+	background-color: lightgreen;
+	line-height: 40px;
+}
+
+#navlist li
+{
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+}
+
+input[type=submit], input[type=file] {
+	font-weight: bold;
+	font-size: 12px;
+	border: 1px #000000 solid;
+}
